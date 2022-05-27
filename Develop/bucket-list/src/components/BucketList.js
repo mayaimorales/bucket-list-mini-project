@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import BucketForm from './BucketForm';
 import Bucket from './Bucket';
 
-function BucketList() {
+function BucketList(itemId) {
   const [bucket, setBucket] = useState([]);
 
   // Function to add a bucket list item
   const addBucketItem = (item) => {
-
+     setBucket(item.bucket)
     // TODO: Write logic to add the new bucket item to the bucket state variable
     
   };
@@ -16,7 +16,14 @@ function BucketList() {
   const completeBucketItem = (id) => {
     // If the ID passed to this function matches the ID of the item that was clicked, mark it as complete
     let updatedBucket = bucket.map((item) => {
-      
+      bucket.filter(item => item.id !=id).map(updatedBucket => (
+        {updatedBucket.item}
+      ))
+      if ( id === itemId) {
+        item = true
+      } else {
+        item = false
+      }
       // TODO: Write logic that marks an item as complete or incomplete when invoked
 
     });
@@ -27,7 +34,11 @@ function BucketList() {
   // Function to remove bucket list item and update state
   const removeBucketItem = (id) => {
     // TODO: Write logic that will return an array of items that don't contain the ID passed to this function
-
+    if ( id === itemId) {
+      item = true
+    } else {
+      item = false
+    }
 
     // TODO: Update the bucket state variable
   };
